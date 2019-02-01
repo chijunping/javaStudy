@@ -2,6 +2,8 @@ package com.java8;
 
 import org.junit.Test;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -18,7 +20,7 @@ public class StreamAPI {
     /**
      * 1、按多个字段（可自定义升序\降序）排序
      * 1、按多个字段分组
-     * */
+     */
     @Test
     public void sorted() {
         List<ClickLog> clickLogs = new ArrayList<>();
@@ -69,5 +71,19 @@ public class StreamAPI {
                 .collect(Collectors.groupingBy(ClickLog::getId, Collectors.groupingBy(ClickLog::getTime)));
 
         System.out.println("");
+    }
+
+    /**
+     * java读取text文件 以stream Api处理
+     */
+    @Test
+    public void streamApi_readText() throws Exception {
+        BufferedReader br = new BufferedReader(new FileReader("C:\\disk_D_文档\\脚本\\hive_batchAddPartitions_clicklog.sh"));
+        int longest = br.lines()
+                .mapToInt(String::length)
+                .max()
+                .getAsInt();
+        br.close();
+        System.out.println(longest);
     }
 }
