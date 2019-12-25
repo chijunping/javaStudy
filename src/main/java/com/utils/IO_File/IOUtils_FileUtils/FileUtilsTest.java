@@ -316,8 +316,8 @@ public class FileUtilsTest {
 
 		FileUtils.writeByteArrayToFile(new File("/target"), "bytes".getBytes());// (file,字符数组)
 		FileUtils.writeByteArrayToFile(new File("/target"), "bytes".getBytes(), true);// (file,字符数组，是否追加)
-		FileUtils.writeByteArrayToFile(new File("/target"), "bytes".getBytes(), 0, 10);// (file,字符数组，起始位置，结束位置)
-		FileUtils.writeByteArrayToFile(new File("/target"), "bytes".getBytes(), 0, 10, true);// (file,字符数组，起始位置，结束位置，是否追加)
+//		FileUtils.writeByteArrayToFile(new File("/target"), "bytes".getBytes(), 0, 10);// (file,字符数组，起始位置，结束位置)
+//		FileUtils.writeByteArrayToFile(new File("/target"), "bytes".getBytes(), 0, 10, true);// (file,字符数组，起始位置，结束位置，是否追加)
 
 		// writeLines多了一个lineEnding参数
 		FileUtils.writeLines(new File("/target"), "utf-8", FileUtils.readLines(new File("/target"), "utf-8"));
@@ -332,7 +332,7 @@ public class FileUtilsTest {
 		FileUtils.forceMkdir(new File("/target"));
 
 		// 强制创建父级目录
-		FileUtils.forceMkdirParent(new File("/xxxx/target"));
+//		FileUtils.forceMkdirParent(new File("/xxxx/target"));
 
 		// 如果是文件，直接读取文件大小；如果是目录，级联计算文件下的所有文件大小
 		FileUtils.sizeOf(new File("/target"));// 返回Long

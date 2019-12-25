@@ -1,10 +1,10 @@
 package com.utils.itcast_05_proxy.action;
 
+import com.utils.itcast_05_proxy.proxyclass.ProxyBoss;
+import com.utils.itcast_05_proxy.service.IBoss;
+import com.utils.itcast_05_proxy.service.impl.Boss;
 import org.junit.Test;
 
-import com.tulun.study.itcast_05_proxy.proxyclass.ProxyBoss;
-import com.tulun.study.itcast_05_proxy.service.IBoss;
-import com.tulun.study.itcast_05_proxy.service.impl.Boss;
 
 /**
  * 什么是动态代理？ 简单的写一个模板接口，剩下的个性化工作，好给动态代理来完成！
@@ -18,35 +18,35 @@ import com.tulun.study.itcast_05_proxy.service.impl.Boss;
  */
 public class ProxySaleAction {
 
-	/**
-	 * 使用代理，在这个代理中，只代理了Boss的yifu方法 定制化业务，可以改变原接口的参数、返回值等
-	 */
-	@Test
-	public void saleByProxy() throws Exception {
-		IBoss boss = ProxyBoss.getProxy(IBoss.class, Boss.class);// 将代理的方法实例化成接口
-		// IBoss boss = new Boss();// 将代理的方法实例化成接口
-		System.out.println("代理经营！");
-		int money = boss.yifu("xxl");// 调用接口的方法，实际上调用方式没有变
-		System.out.println("衣服成交价：" + money);
-		int kuzi = boss.kuzi();
-		System.out.println("裤子成交价：" + kuzi);
-		String sayHi = boss.sayHi("cjp");
-		System.out.println(sayHi);
+    /**
+     * 使用代理，在这个代理中，只代理了Boss的yifu方法 定制化业务，可以改变原接口的参数、返回值等
+     */
+    @Test
+    public void saleByProxy() throws Exception {
+        IBoss boss = ProxyBoss.getProxy(IBoss.class, Boss.class);// 将代理的方法实例化成接口
+        // IBoss boss = new Boss();// 将代理的方法实例化成接口
+        System.out.println("代理经营！");
+        int money = boss.yifu("xxl");// 调用接口的方法，实际上调用方式没有变
+        System.out.println("衣服成交价：" + money);
+        int kuzi = boss.kuzi();
+        System.out.println("裤子成交价：" + kuzi);
+        String sayHi = boss.sayHi("cjp");
+        System.out.println(sayHi);
 
-	}
+    }
 
-	/**
-	 * 不使用代理，直接调用方法 方法中规定什么业务，就只能调用什么业务，规定什么返回值，就只能输出什么返回值
-	 */
-	@Test
-	public void saleByBossSelf() throws Exception {
-		IBoss boss = new Boss();// 将代理的方法实例化成接口
-		System.out.println("老板自营！");
-		int money = boss.yifu("xxl");// 调用接口的方法，实际上调用方式没有变
-		System.out.println("衣服成交价：" + money);
-		int kuzi = boss.kuzi();
-		System.out.println("裤子成交价：" + kuzi);
-		String sayHi = boss.sayHi("cjp");
-		System.out.println(sayHi);
-	}
+    /**
+     * 不使用代理，直接调用方法 方法中规定什么业务，就只能调用什么业务，规定什么返回值，就只能输出什么返回值
+     */
+    @Test
+    public void saleByBossSelf() throws Exception {
+        IBoss boss = new Boss();// 将代理的方法实例化成接口
+        System.out.println("老板自营！");
+        int money = boss.yifu("xxl");// 调用接口的方法，实际上调用方式没有变
+        System.out.println("衣服成交价：" + money);
+        int kuzi = boss.kuzi();
+        System.out.println("裤子成交价：" + kuzi);
+        String sayHi = boss.sayHi("cjp");
+        System.out.println(sayHi);
+    }
 }

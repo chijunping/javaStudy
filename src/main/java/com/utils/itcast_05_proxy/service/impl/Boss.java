@@ -1,6 +1,7 @@
 package com.utils.itcast_05_proxy.service.impl;
 
-import com.tulun.study.itcast_05_proxy.service.IBoss;
+
+import com.utils.itcast_05_proxy.service.IBoss;
 
 /**
  * 实现了卖衣服的接口 自定义了自己的业务，卖裤子

@@ -24,7 +24,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import org.apache.commons.io.IOUtils;
-import org.apache.http.entity.mime.content.InputStreamBody;
 import org.junit.Test;
 
 /*

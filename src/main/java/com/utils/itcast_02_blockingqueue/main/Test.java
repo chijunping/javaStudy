@@ -1,10 +1,10 @@
 package com.utils.itcast_02_blockingqueue.main;
 
+import com.utils.itcast_02_blockingqueue.consumer.Consumer;
+import com.utils.itcast_02_blockingqueue.producer.Producer;
+
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-
-import com.tulun.study.itcast_02_blockingqueue.consumer.Consumer;
-import com.tulun.study.itcast_02_blockingqueue.producer.Producer;
 
 
 public class Test {
@@ -14,7 +14,7 @@ public class Test {
 		// 不设置的话，LinkedBlockingQueue默认大小为Integer.MAX_VALUE
 		// BlockingQueue<String> queue = new ArrayBlockingQueue<String>(2);
 		Consumer consumer = new Consumer(queue);
-		Producer producer = new Producer(queue);
+        Producer producer = new Producer(queue);
 		for (int i = 0; i < 3; i++) {
 			new Thread(producer, "Producer" + (i + 1)).start();
 		}
